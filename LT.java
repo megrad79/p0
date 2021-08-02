@@ -6,17 +6,9 @@ import java.util.Scanner;
 // Can even try incorporating maven
 
 public class LT {
-
-	// Read Nasa Data on Lightning
-	/* public static void readData(){
-		try {
-			Scanner data = new Scanner(new File("~Desktop/Revature/Project0/lt_long.csv"));
-			// System.out.println(data.nextInt());
-		}
-		finally {
-
-		}
-	} */
+	// Variable declaration
+	static int z = 0;
+	static int y = 0;
 
 	// Print welcome message to the command line
 	public static void welcome(){
@@ -33,8 +25,16 @@ public class LT {
 		System.out.println("Please enter US zip code: ");
 
 		// Zip code
-		int z = s.nextInt();
+		z = s.nextInt();
+
+		// not the best check of zip code
+		while(!(z > 10000)){
+			System.out.println("Zip code not recognized. Please enter valid US zip code: ");
+			z = s.nextInt();
+		}
+
 		return z;
+		// return 0;
 	}
 
 	// Request month from the command line
@@ -57,7 +57,7 @@ public class LT {
 		System.out.println("Gnarly!!! Please enter the desired year: ");
 
 		// Year
-		int y = s.nextInt();
+		y = s.nextInt();
 		return y;
 	}
 
@@ -91,8 +91,12 @@ public class LT {
 		// Open application for us
 		welcome();
 
+		// Call Functions
+		zip();
+		year();
+
 		// Give user nice summary of their request
-		System.out.println("Here is BANG! BOOM! POW! Lightning Tracker's map for US zip code " + zip() + " in " + month() + " " + year() + ".");
+		System.out.println("Here is BANG! BOOM! POW! Lightning Tracker's map for US zip code " + z + " in " + month() + " " + y + ".");
 	}
 
 }

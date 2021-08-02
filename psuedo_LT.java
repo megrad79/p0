@@ -18,8 +18,6 @@ Lightning Predictor App:
 4. output lightning heat map
 >>> Can also try predicting the magnitude + landfall + potential warnings?
 
-// headers
-
 //class???
 public static void main(Strings[] args){
 	// Make a program that can output data to make sure loaded well from source
