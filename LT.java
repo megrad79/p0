@@ -74,11 +74,15 @@ public class LT {
 		vt.useDelimiter(",");
 
 		while (lg.hasNext() && lat.hasNext() && frd.hasNext() && vt.hasNext()) {
-			System.out.println(lg.next());
-			System.out.println(lat.next());
-			System.out.println(frd.next());
-			System.out.println(vt.next());
+			// System.out.println(lg.next());
+			// System.out.println(lat.next());
+			// System.out.println(frd.next());
+			// System.out.println(vt.next());
+
+			break;
 		}
+		System.out.println("Data loaded.");
+
 		lg.close();
 		lat.close();
 		frd.close();

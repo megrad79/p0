@@ -24,5 +24,7 @@ public class HelloWorld {
         System.out.println(zip);
         System.out.println(year);
         System.out.println(month);
+
+        // Make a test to make sure data is loaded and right size
     }
 }
