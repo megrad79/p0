@@ -1,6 +1,4 @@
 import java.io.File;
-import java.io.*;
-import java.io.OutputStream;
 import java.util.Scanner;
 
 
@@ -65,12 +63,26 @@ public class LT {
 
 	public static void main(String[] args) throws Exception {
 		// Call Lightning Data
-		Scanner data = new Scanner(new File("C://Users/njone/Desktop/Revature/Project0/lt_long.csv"));
-		data.useDelimiter(",");
-		while (data.hasNext()) {
-			System.out.println(data.next());
+		Scanner lg = new Scanner(new File("C://Users/njone/Desktop/Revature/Project0/lt_long.csv"));
+		Scanner lat = new Scanner(new File("C://Users/njone/Desktop/Revature/Project0/lt_lat.csv"));
+		Scanner frd = new Scanner(new File("C://Users/njone/Desktop/Revature/Project0/lt_frd.csv"));
+		Scanner vt = new Scanner(new File("C://Users/njone/Desktop/Revature/Project0/lt_vt.csv"));
+
+		lg.useDelimiter(",");
+		lat.useDelimiter(",");
+		frd.useDelimiter(",");
+		vt.useDelimiter(",");
+
+		while (lg.hasNext() && lat.hasNext() && frd.hasNext() && vt.hasNext()) {
+			System.out.println(lg.next());
+			System.out.println(lat.next());
+			System.out.println(frd.next());
+			System.out.println(vt.next());
 		}
-		data.close();
+		lg.close();
+		lat.close();
+		frd.close();
+		vt.close();
 
 		// Open application for us
 		welcome();
@@ -84,7 +96,6 @@ public class LT {
 
 /* KNOWN ISSUES:
 	- COULD TRY RETURNING Z, Y, AND M OUTSIDE OF THE BLOCKS... (NOT SURE IF WILL CALL SINCE STATIC VARIABLES....)
-	- NEED TO PASS THROUGH DATA TODAY!!!
 	- CHECK PROJECT REQUIREMENTS TODAY AND CREATE A GOOD SKELETON
 	- MAKE PROBABLY 3 NEW FUNCTIONS AND TESTS TODAY
 
