@@ -1,6 +1,24 @@
+import java.io.File;
+import java.io.*;
+import java.io.OutputStream;
 import java.util.Scanner;
 
+
+//Buffered Reader probably... (try this)
+// Can even try incorporating maven
+
 public class LT {
+
+	// Read Nasa Data on Lightning
+	/* public static void readData(){
+		try {
+			Scanner data = new Scanner(new File("~Desktop/Revature/Project0/lt_long.csv"));
+			// System.out.println(data.nextInt());
+		}
+		finally {
+
+		}
+	} */
 
 	// Print welcome message to the command line
 	public static void welcome(){
@@ -45,7 +63,16 @@ public class LT {
 		return y;
 	}
 
-	public static void main(String[] args){
+	public static void main(String[] args) throws Exception {
+		// Call Lightning Data
+		Scanner data = new Scanner(new File("C://Users/njone/Desktop/Revature/Project0/lt_long.csv"));
+		data.useDelimiter(",");
+		while (data.hasNext()) {
+			System.out.println(data.next());
+		}
+		data.close();
+
+		// Open application for us
 		welcome();
 
 		// Give user nice summary of their request
@@ -53,3 +80,12 @@ public class LT {
 	}
 
 }
+
+
+/* KNOWN ISSUES:
+	- COULD TRY RETURNING Z, Y, AND M OUTSIDE OF THE BLOCKS... (NOT SURE IF WILL CALL SINCE STATIC VARIABLES....)
+	- NEED TO PASS THROUGH DATA TODAY!!!
+	- CHECK PROJECT REQUIREMENTS TODAY AND CREATE A GOOD SKELETON
+	- MAKE PROBABLY 3 NEW FUNCTIONS AND TESTS TODAY
+
+ */
