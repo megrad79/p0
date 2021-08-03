@@ -8,6 +8,7 @@ import java.util.Scanner;
 public class LT {
 	// Variable declaration
 	static int z = 0;
+	static String m = "";
 	static int y = 0;
 
 	// Print welcome message to the command line
@@ -32,9 +33,7 @@ public class LT {
 			System.out.println("Zip code not recognized. Please enter valid US zip code: ");
 			z = s.nextInt();
 		}
-
 		return z;
-		// return 0;
 	}
 
 	// Request month from the command line
@@ -42,10 +41,27 @@ public class LT {
 		// Allows and reads user inputs
 		Scanner s = new Scanner(System.in);
 
-		System.out.println("Shweet!!! Please enter the desired month: ");
+		System.out.println("Shweet!!! Please enter the desired month (from 1 - 12): ");
 
 		// month
-		String m = s.next();
+		int x = s.nextInt();
+		String m = "";
+
+		String [] months = {"Invalid entry. Please try again.", "Jan.", "Feb.", "March", "April", "May", "June", "July", "Aug.", "Sept.", "Oct.", "Nov.", "Dec." };
+		// int [] M = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
+
+		// Try to implement enhanced for-loop***
+		/*while(!(1<= x && x <= 12)){
+			System.out.println(months[0]);
+			x = s.nextInt();
+		}*/
+		if (1 <= x && x <= 12){
+			m = m.concat(months[x]);
+		}
+		else {
+			System.out.println(months[0]);
+			x = s.nextInt();
+		}
 		return m;
 	}
 
@@ -58,6 +74,12 @@ public class LT {
 
 		// Year
 		y = s.nextInt();
+
+		// not the best check of year
+		while (!(y > 1000)){
+			System.out.println("Year not recognized. Please enter a year after 1000: ");
+			y = s.nextInt();
+		}
 		return y;
 	}
 
@@ -103,7 +125,6 @@ public class LT {
 
 
 /* KNOWN ISSUES:
-	- COULD TRY RETURNING Z, Y, AND M OUTSIDE OF THE BLOCKS... (NOT SURE IF WILL CALL SINCE STATIC VARIABLES....)
 	- CHECK PROJECT REQUIREMENTS TODAY AND CREATE A GOOD SKELETON
 	- MAKE PROBABLY 3 NEW FUNCTIONS AND TESTS TODAY
 
