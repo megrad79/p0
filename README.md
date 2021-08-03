@@ -30,8 +30,8 @@
 
 ## Data:
 ### Lightning
-https://ghrc.nsstc.nasa.gov/hydro/#/orders?mydata=lisvhrfc&_k=h2u823
-https://ghrc.nsstc.nasa.gov/lightning/data/data_lis_vhr-climatology.html
+- https://ghrc.nsstc.nasa.gov/hydro/#/orders?mydata=lisvhrfc&_k=h2u823
+- https://ghrc.nsstc.nasa.gov/lightning/data/data_lis_vhr-climatology.html
 
 ### Zip Code to Latitude, Longitude
 https://gist.github.com/erichurst/7882666#file-us-zip-codes-from-2013-government-data
