@@ -125,7 +125,18 @@ public class LT {
 
 
 /* KNOWN ISSUES:
+	- call data within it's own function
+	- refactoring; think of objects and classes if time
+	- make at least one map
+	- make at least one multilinear regression?
 	- CHECK PROJECT REQUIREMENTS TODAY AND CREATE A GOOD SKELETON
 	- MAKE PROBABLY 3 NEW FUNCTIONS AND TESTS TODAY
+	method(int z, int x, int y) >>> blank map
+	>>> map according to year
+	>>> map according to month
+	>>> map according to lat, long
+	>>> map according to frd
+	(might either include us map outline or just points...)
+
 
  */
