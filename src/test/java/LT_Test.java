@@ -1,7 +1,24 @@
+import org.junit.Test;
 import java.util.Scanner;
 
-public class Test {
-    public static void main(String[] args){
+import static junit.framework.TestCase.assertTrue;
+
+public class LT_Test {
+
+    @Test
+    // Check reading outputs
+    public void UnitTest(){
+        // Test Print Inputs
+        assertTrue(true);
+    }
+
+
+    // Make a test to make sure data is loaded and right size
+
+
+
+
+    /*public static void main(String[] args){
         // Print welcome and request user zip code from the command line
         System.out.println("Welcome to BANG! BOOM! POW! Lightning Tracker,"
                 + "where we track the lightning..."
@@ -26,5 +43,5 @@ public class Test {
         System.out.println(month);
 
         // Make a test to make sure data is loaded and right size
-    }
+    }*/
 }

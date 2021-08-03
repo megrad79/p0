@@ -1,3 +1,5 @@
+import org.knowm.xchart.internal.chartpart.PlotContent_Category_Line_Area_Scatter;
+
 import java.io.File;
 import java.util.Scanner;
 
@@ -87,6 +89,16 @@ public class LT {
 		return y;
 	}
 
+	/*// Make Lightning Heat Map 1998-2013 (Tropics)
+	Table ltHeatMap = Table.createFromCsv("lt_frd.csv");
+
+	ltHeatMap = ltHeatMap.selectWhere(both(column("Starting Latitude").isGreaterThan(0f),
+			column("Scale").isGreaterThanOrEqualTo(0)));
+
+	Scatter.show("US Lightning Data 1998-2013",
+			ltHeatMap.numericColumn("Starting Longitude"),
+			ltHeatMap.numericColumn("Starting Latitude"));
+*/
 	public static void main(String[] args) throws Exception {
 		// Call Lightning Data
 		Scanner lg = new Scanner(new File("C://Users/njone/Desktop/Revature/Project0/lt_long.csv"));
@@ -123,6 +135,7 @@ public class LT {
 
 		// Give user nice summary of their request
 		System.out.println("Here is BANG! BOOM! POW! Lightning Tracker's map for US zip code " + z + " in " + month() + " " + y + ".");
+
 	}
 
 }
