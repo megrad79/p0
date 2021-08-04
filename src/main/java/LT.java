@@ -1,6 +1,19 @@
-import org.knowm.xchart.internal.chartpart.PlotContent_Category_Line_Area_Scatter;
 
+import org.knowm.xchart.internal.chartpart.PlotContent_Category_Line_Area_Scatter;
+import tech.tablesaw.api.DoubleColumn;
+import tech.tablesaw.api.NumericColumn;
+import tech.tablesaw.api.Table;
+import tech.tablesaw.plotly.Plot;
+import tech.tablesaw.plotly.components.Axis;
+import tech.tablesaw.plotly.components.Figure;
+import tech.tablesaw.plotly.components.Layout;
+import tech.tablesaw.plotly.components.Marker;
+import tech.tablesaw.plotly.traces.ScatterTrace;
+import tech.tablesaw.plotly.traces.Trace;
+
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.util.Scanner;
 
 
@@ -89,19 +102,9 @@ public class LT {
 		return y;
 	}
 
-	/*// Make Lightning Heat Map 1998-2013 (Tropics)
-	Table ltHeatMap = Table.createFromCsv("lt_frd.csv");
-
-	ltHeatMap = ltHeatMap.selectWhere(both(column("Starting Latitude").isGreaterThan(0f),
-			column("Scale").isGreaterThanOrEqualTo(0)));
-
-	Scatter.show("US Lightning Data 1998-2013",
-			ltHeatMap.numericColumn("Starting Longitude"),
-			ltHeatMap.numericColumn("Starting Latitude"));
-*/
-	public static void main(String[] args) throws Exception {
+	public static void dataRead() throws Exception{
 		// Call Lightning Data
-		Scanner lg = new Scanner(new File("C://Users/njone/Desktop/Revature/Project0/lt_long.csv"));
+		Scanner lg = new Scanner(new BufferedReader(new FileReader("C://Users/njone/Desktop/Revature/Project0/lt_long.csv")));
 		Scanner lat = new Scanner(new File("C://Users/njone/Desktop/Revature/Project0/lt_lat.csv"));
 		Scanner frd = new Scanner(new File("C://Users/njone/Desktop/Revature/Project0/lt_frd.csv"));
 		Scanner vt = new Scanner(new File("C://Users/njone/Desktop/Revature/Project0/lt_vt.csv"));
@@ -112,10 +115,35 @@ public class LT {
 		vt.useDelimiter(",");
 
 		while (lg.hasNext() && lat.hasNext() && frd.hasNext() && vt.hasNext()) {
-			// System.out.println(lg.next());
-			// System.out.println(lat.next());
-			// System.out.println(frd.next());
-			// System.out.println(vt.next());
+			/*DoubleColumn lgc = DoubleColumn.create("Longitude", lg);
+			DoubleColumn latc = DoubleColumn.create("Latitude", lat);
+			DoubleColumn frdc = DoubleColumn.create("Flash Rate Density", frd);
+			DoubleColumn vtc = DoubleColumn.create("View Time", vt);*/
+
+			/*if (lg.hasNext()){
+				int row = 3600;
+				int col = 1;
+				double [][] M = new double[row][col];
+
+				for (int i = 0; i < row; i++){
+					for (int j = 0; i < col; j++){
+						M[i][j] = lg.nextDouble();
+					}
+
+				}
+			}*/
+
+			/*if (lat.hasNext()){
+				int row = 1;
+				int col = 760;
+				Scanner [] LT = lt.;
+			}*/
+
+
+			 System.out.println(lg.next());
+			 System.out.println(lat.next());
+			 System.out.println(frd.next());
+			 System.out.println(vt.next());
 
 			break;
 		}
@@ -126,7 +154,29 @@ public class LT {
 		frd.close();
 		vt.close();
 
-		// Open application for us
+		// Make Lightning Heat Map 1998-2013 (Tropics)
+		/*Table ltHeatMap = Table.read().csv("C://Users/njone/Desktop/Revature/Project0/lt_frd.csv");
+
+		// System.out.println(ltHeatMap.structure());
+
+		ltHeatMap = ltHeatMap.where(ltHeatMap.nCol("Latitude").isGreaterThan(20));
+
+		NumericColumn<?> x = ltHeatMap.nCol("Longitude");
+		NumericColumn<?> y = ltHeatMap.nCol("Latitude");
+
+		Layout layout = Layout.builder().title("Lightning Heat Map").height(3600).width(760).yAxis(Axis.builder().range(20,60).build()).build();
+
+		Trace trace = ScatterTrace.builder(x,y).marker(Marker.builder().size(1).build()).name("lat/lon").build();
+
+		Plot.show(new Figure(layout, trace));*/
+	}
+
+
+	public static void main(String[] args) throws Exception{
+		// Read data
+		dataRead();
+
+		// Open application for user
 		welcome();
 
 		// Call Functions
@@ -135,7 +185,6 @@ public class LT {
 
 		// Give user nice summary of their request
 		System.out.println("Here is BANG! BOOM! POW! Lightning Tracker's map for US zip code " + z + " in " + month() + " " + y + ".");
-
 	}
 
 }
@@ -143,7 +192,6 @@ public class LT {
 
 /* KNOWN ISSUES:
 	- move data to src/DATA
-	- call data within it's own function
 	- refactoring; think of objects and classes if time
 	- make at least one map
 	- make at least one multilinear regression?
